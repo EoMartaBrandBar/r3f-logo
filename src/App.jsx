@@ -75,13 +75,13 @@ function SvgLogo() {
 
     const getObjectNameForIndex = (i) => {
       if (i >= 0 && i <= 2) return 'Object_2'
-      if (i >= 4 && i <= 6) return 'Object_3'
-      if (i >= 7 && i <= 8) return 'Object_4'
+      if (i >= 3 && i <= 5) return 'Object_3'
+      if (i >= 6 && i <= 8) return 'Object_4'
       if (i >= 9 && i <= 10) return 'Object_5'
       if (i >= 11 && i <= 13) return 'Object_6'
-      if (i >= 14 && i <= 17) return 'Object_7'
-      if (i >= 18 && i <= 19) return 'Object_8'
-      if (i >= 20 && i <= 21) return 'Object_9'
+      if (i >= 14 && i <= 16) return 'Object_7'
+      if (i >= 17 && i <= 18) return 'Object_8'
+      if (i >= 19 && i <= 21) return 'Object_9'
       return null
     }
 
