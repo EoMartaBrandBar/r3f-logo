@@ -74,7 +74,7 @@ function SvgLogo() {
     const parts = []
 
     const getObjectNameForIndex = (i) => {
-      if (i >= 0 && i <= 3) return 'Object_2'
+      if (i >= 0 && i <= 2) return 'Object_2'
       if (i >= 4 && i <= 6) return 'Object_3'
       if (i >= 7 && i <= 8) return 'Object_4'
       if (i >= 9 && i <= 10) return 'Object_5'
