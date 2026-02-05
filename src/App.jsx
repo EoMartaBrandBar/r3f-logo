@@ -63,7 +63,7 @@ function LogoScene({ q = new THREE.Quaternion(), p = new THREE.Vector3() }) {
 }
 
 function SvgLogo() {
-  const svgData = useLoader(SVGLoader, 'https://pzp683o5wwfgvxj5.public.blob.vercel-storage.com/logo.svg')
+  const svgData = useLoader(SVGLoader, '/logo.svg')
 
   const [, params] = useRoute('/item/:id')
   const [, setLocation] = useLocation()
