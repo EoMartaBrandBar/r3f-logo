@@ -1,23 +1,24 @@
 {
   "name": "r3f-logo",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.115.1",
-    "@react-three/fiber": "^8.17.5",
-    "maath": "^0.10.0"
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "three": "^0.169.0",
-    "wouter": "^3.1.2"
+    "@react-three/drei": "9.115.1",
+    "@react-three/fiber": "8.17.5",
+    "maath": "0.10.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.169.0",
+    "wouter": "3.1.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.1"
+    "@vitejs/plugin-react": "4.3.1",
+    "vite": "5.4.1"
   }
 }
