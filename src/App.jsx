@@ -9,8 +9,6 @@ import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader.js'
 export const App = () => (
   <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 0, 8] }}>
     <color attach="background" args={['#252528']} />
-    <ambientLight intensity={0.7} />
-    <directionalLight position={[5, 5, 5]} intensity={1.2} />
     <LogoScene />
   </Canvas>
 )
@@ -55,7 +53,10 @@ function LogoScene({ q = new THREE.Quaternion(), p = new THREE.Vector3() }) {
   return (
     <group
       ref={ref}
-      onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name))}
+      onClick={(e) => {
+        e.stopPropagation()
+        setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name)
+      }}
       onPointerMissed={() => setLocation('/')}>
       <SvgLogo />
     </group>
@@ -76,9 +77,9 @@ function SvgLogo() {
     const getObjectNameForIndex = (i) => {
       if (i >= 0 && i <= 2) return 'Object_2'
       if (i >= 3 && i <= 5) return 'Object_3'
-      if (i >= 6 && i <= 8) return 'Object_4'
-      if (i >= 9 && i <= 10) return 'Object_5'
-      if (i >= 11 && i <= 13) return 'Object_6'
+      if (i >= 6 && i <= 7) return 'Object_4'
+      if (i >= 8 && i <= 9) return 'Object_5'
+      if (i >= 10 && i <= 12) return 'Object_6'
       if (i >= 14 && i <= 16) return 'Object_7'
       if (i >= 17 && i <= 18) return 'Object_8'
       if (i >= 19 && i <= 21) return 'Object_9'
@@ -113,11 +114,8 @@ function SvgLogo() {
 
       shapes.forEach((shape) => {
         const geometry = new THREE.ExtrudeGeometry(shape, { depth: 2, bevelEnabled: false })
-        const material = new THREE.MeshStandardMaterial({
-          color: new THREE.Color('#736CED'), // alap szín
-          metalness: 0.4,
-          roughness: 0.3,
-          emissive: new THREE.Color(0x000000)
+        const material = new THREE.MeshBasicMaterial({
+          color: new THREE.Color('#5151d6') // idle szín
         })
         material.userData.baseColor = new THREE.Color(originalColor)
         const mesh = new THREE.Mesh(geometry, material)
@@ -163,12 +161,12 @@ function SvgLogo() {
       g.traverse((child) => {
         if (!child.isMesh) return
         const mat = child.material
-        const baseColor = mat.userData.baseColor.clone()
+        const baseColor = mat.userData.baseColor.clone() // SVG fill
 
         if (hovered || isActive) {
-          easing.dampC(mat.color, baseColor, 0.2, dt) // hover → eredeti szín
+          easing.dampC(mat.color, baseColor, 0.2, dt)      // hover/active → eredeti SVG szín
         } else {
-          easing.dampC(mat.color, new THREE.Color('#5151d6'), 0.2, dt) // alap szín
+          easing.dampC(mat.color, new THREE.Color('#5151d6'), 0.2, dt) // idle → flat lilás kék
         }
       })
     })
